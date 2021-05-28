@@ -22,22 +22,30 @@ export class App extends Component {
   render() {
     return (
       <>
-        <h1>Party Like It's 1989</h1>
+        <header>
+          <h1>Top Movies of 1989</h1>
+        </header>
         <div>
+          <style>
+            @import
+            url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap');
+          </style>
           <ul>
             {this.state.results.map((movie, index) => {
               return (
                 <li key={movie.index}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w185/${movie.poster_path}`}
-                  />
-                  {movie.title} {movie.overview}
+                  <p>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
+                    />
+                  </p>
+                  <p className="title">
+                    <h2>{movie.title}</h2>
+                  </p>{' '}
+                  <p className="overview">{movie.overview}</p>
                 </li>
               )
             })}
-            {/* {this.state.results.map((movie, index) => {
-              return <li key={movie.index}>{movie.overview}</li>
-            })} */}
           </ul>
         </div>
       </>
